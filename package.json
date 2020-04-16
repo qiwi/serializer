@@ -1,0 +1,103 @@
+{
+  "name": "@qiwi/mimic",
+  "version": "0.0.0",
+  "description": "Implementation substitution provider",
+  "repository": "git@github.com:qiwi/mimic.git",
+  "author": "Anton Golub <mailbox@antongolub.ru>",
+  "license": "MIT",
+  "private": false,
+  "source": "src/main/ts/index.ts",
+  "main": "target/bundle/mimic.js",
+  "module": "target/bundle/mimic.mjs",
+  "unpkg": "target/bundle/mimic.umd.js",
+  "types": "typings/index.d.ts",
+  "typescript": {
+    "definition": "typings/index.d.ts"
+  },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "target",
+    "typings",
+    "flow-typed"
+  ],
+  "scripts": {
+    "jest": "jest -w 1 --config=jest.config.json",
+    "lint": "tslint -p tsconfig.test.json src/**/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "test": "yarn lint && yarn jest",
+    "clean": "rimraf target typings",
+    "build": "yarn clean && yarn build:es5 && yarn build:es6 && yarn build:ts && yarn libdef && yarn docs && yarn uglify && yarn build:bundle",
+    "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
+    "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
+    "build:ts": "cp -r src/main/ts/ target/ts/",
+    "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
+    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/mimic/target/es5 --name @qiwi/mimic --main @qiwi/mimic/target/es5/index --moduleResolution node",
+    "flowgen": "flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
+    "libdef": "yarn dtsgen && yarn libdeffix && yarn flowgen",
+    "libdeffix": "node -r esm ./scripts/js/libdef-fix.js --dts=./typings/index.d.ts  --prefix=@qiwi/mimic/target/es5",
+    "test:report": "yarn test && yarn push:report",
+    "push:report": "yarn coveralls:push",
+    "coveralls:push": "cat ./coverage/lcov.info | coveralls",
+    "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0",
+    "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
+    "postupdate": "yarn && yarn build && yarn test"
+  },
+  "dependencies": {
+    "@qiwi/substrate": "^1.18.25",
+    "@types/nanoid": "^2.1.0",
+    "nanoid": "^3.0.2",
+    "tslib": "^1.11.1"
+  },
+  "devDependencies": {
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.15.10",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.5",
+    "@semantic-release/npm": "^7.0.5",
+    "@types/bluebird": "^3.5.30",
+    "@types/jest": "^25.2.1",
+    "@types/jest-json-schema": "^2.1.2",
+    "coveralls": "^3.0.11",
+    "dts-generator": "^3.0.0",
+    "esm": "^3.2.25",
+    "flowgen": "1.10.0",
+    "jest": "^25.2.7",
+    "lodash": "^4.17.15",
+    "microbundle": "^0.12.0-next.3",
+    "replace-in-file": "^5.0.2",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.0.4",
+    "terser": "^4.6.10",
+    "ts-jest": "^25.3.1",
+    "tslint": "^6.1.1",
+    "tslint-config-qiwi": "^1.3.2",
+    "typedoc": "^0.17.4",
+    "typedoc-plugin-external-module-name": "^3.0.0",
+    "typescript": "^3.8.3"
+  },
+  "keywords": [
+    "mimic",
+    "mock",
+    "spy"
+  ],
+  "release": {
+    "branch": "master",
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@qiwi/semantic-release-gh-pages-plugin"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@qiwi/semantic-release-gh-pages-plugin"
+    ]
+  }
+}
