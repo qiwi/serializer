@@ -1,5 +1,5 @@
 {
-  "name": "@qiwi/mimic",
+  "name": "@qiwi/serialize",
   "mode": "modules",
   "out": "./docs",
   "target": "ES6",

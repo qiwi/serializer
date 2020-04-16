@@ -1,15 +1,15 @@
 {
-  "name": "@qiwi/mimic",
+  "name": "@qiwi/serialize",
   "version": "0.0.0",
-  "description": "Implementation substitution provider",
-  "repository": "git@github.com:qiwi/mimic.git",
+  "description": "Utility to serialize/deserialize js object and restore its context as close as possible",
+  "repository": "git@github.com:qiwi/serialize.git",
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
   "private": false,
   "source": "src/main/ts/index.ts",
-  "main": "target/bundle/mimic.js",
-  "module": "target/bundle/mimic.mjs",
-  "unpkg": "target/bundle/mimic.umd.js",
+  "main": "target/bundle/serialize.js",
+  "module": "target/bundle/serialize.mjs",
+  "unpkg": "target/bundle/serialize.umd.js",
   "types": "typings/index.d.ts",
   "typescript": {
     "definition": "typings/index.d.ts"
@@ -32,10 +32,10 @@
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
     "build:ts": "cp -r src/main/ts/ target/ts/",
     "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
-    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/mimic/target/es5 --name @qiwi/mimic --main @qiwi/mimic/target/es5/index --moduleResolution node",
+    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/serialize/target/es5 --name @qiwi/serialize --main @qiwi/serialize/target/es5/index --moduleResolution node",
     "flowgen": "flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
     "libdef": "yarn dtsgen && yarn libdeffix && yarn flowgen",
-    "libdeffix": "node -r esm ./scripts/js/libdef-fix.js --dts=./typings/index.d.ts  --prefix=@qiwi/mimic/target/es5",
+    "libdeffix": "node -r esm ./scripts/js/libdef-fix.js --dts=./typings/index.d.ts  --prefix=@qiwi/serialize/target/es5",
     "test:report": "yarn test && yarn push:report",
     "push:report": "yarn coveralls:push",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
@@ -77,7 +77,7 @@
     "typescript": "^3.8.3"
   },
   "keywords": [
-    "mimic",
+    "serialize",
     "mock",
     "spy"
   ],
