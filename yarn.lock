@@ -1187,7 +1187,7 @@
   resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.38.0.tgz#db83f23a3a8f818f3bd9df25ae898d1c6d659bdf"
   integrity sha512-hD3PbYrQZkhKD68aW3aI2XOOHDa8iqRh5SQP9aOsAE0oqGdJxjF8g0jFsB6jQuUOEf3YFOJEA4GBexiu8mfNLg==
 
-"@qiwi/substrate@^1.18.25":
+"@qiwi/substrate@^1.18.26":
   version "1.18.26"
   resolved "https://registry.yarnpkg.com/@qiwi/substrate/-/substrate-1.18.26.tgz#787e933358403ee3dba34cae9fb1490078d54861"
   integrity sha512-/QAzzyBNgJFugFJfdHH9xAdarBSUkJerfeTe12AagnEkljLnffNVmbulmBFBP8Aqpzj1G9Xo5nQhOLV2k8b72A==
@@ -2963,7 +2963,7 @@ debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
-debuglog@*, debuglog@^1.0.1:
+debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -4367,7 +4367,7 @@ import-local@^3.0.2:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
 
-imurmurhash@*, imurmurhash@^0.1.4:
+imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -5220,7 +5220,7 @@ jest-worker@^25.2.6:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest@^25.2.7:
+jest@^25.3.0:
   version "25.3.0"
   resolved "https://registry.yarnpkg.com/jest/-/jest-25.3.0.tgz#7a5e59741d94b8662664c77a9f346246d6bf228b"
   integrity sha512-iKd5ShQSHzFT5IL/6h5RZJhApgqXSoPxhp5HEi94v6OAw9QkF8T7X+liEU2eEHJ1eMFYTHmeWLrpBWulsDpaUg==
@@ -5641,11 +5641,6 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
-lodash._baseindexof@*:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
-  integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
-
 lodash._baseuniq@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash._baseuniq/-/lodash._baseuniq-4.6.0.tgz#0ebb44e456814af7905c6212fa2c9b2d51b841e8"
@@ -5654,32 +5649,10 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
-lodash._bindcallback@*:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
-  integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
-
-lodash._cacheindexof@*:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
-  integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
-
-lodash._createcache@*:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
-  integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
-  dependencies:
-    lodash._getnative "^3.0.0"
-
 lodash._createset@~4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
-
-lodash._getnative@*, lodash._getnative@^3.0.0:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
-  integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
 
 lodash._root@~3.0.0:
   version "3.0.1"
@@ -5730,11 +5703,6 @@ lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
-
-lodash.restparam@*:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
-  integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
@@ -6207,7 +6175,7 @@ mute-stream@~0.0.4:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-nanoid@^3.0.2:
+nanoid@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.3.tgz#b2bcfcfda4b4d6838bc22a0c8dd3c0a17a204c20"
   integrity sha512-Zw8rTOUfh6FlKgkEbHiB1buOF2zOPOQyGirABUWn+9Z7m9PpyoLVkh6Ksc53vBjndINQ2+9LfRPaHxb/u45EGg==
@@ -9063,7 +9031,7 @@ terminal-link@^2.0.0:
     ansi-escapes "^4.2.1"
     supports-hyperlinks "^2.0.0"
 
-terser@^4.6.10, terser@^4.6.2:
+terser@^4.6.11, terser@^4.6.2:
   version "4.6.11"
   resolved "https://registry.yarnpkg.com/terser/-/terser-4.6.11.tgz#12ff99fdd62a26de2a82f508515407eb6ccd8a9f"
   integrity sha512-76Ynm7OXUG5xhOpblhytE7X58oeNSmC8xnNhjWVo8CksHit0U0kO4hfNbPrrYwowLWFgM2n9L176VNx2QaHmtA==
