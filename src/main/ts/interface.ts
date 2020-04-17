@@ -2,20 +2,28 @@ import {IMetaTypedValue} from '@qiwi/substrate'
 
 export const type = Symbol('Serialized')
 
-export enum IDefinitionSource {
+export enum ISourceType {
   global,
   module
 }
 
-export type IContextDeclaration = {
-  prop: string
-  definition: IDefinition | IDefinitionKey
+export type IDefinitionDeclaration = {
+  type: string // TODO enum
+  properties?: IDefinitionsMap
+  definitions?: IDefinitionsMap
+  source?: ISourceDefinition
 }
 
-export type IDefinitionKey = string
+export type IDefinitionReference = {
+  '$ref': string
+}
 
-export type IDefinition = {
-  source: IDefinitionSource
+export type IDefinition = IDefinitionDeclaration | IDefinitionReference
+
+export type IDefinitionKey = string | number
+
+export type ISourceDefinition = {
+  type: ISourceType
   target: string
   path: string
 }
@@ -24,10 +32,11 @@ export type IDefinitionsMap = {
   [key in IDefinitionKey]: IDefinition
 }
 
+export type ISchema = IDefinitionDeclaration
+
 export type ISerializedMeta = {
   generator: string
-  context: IContextDeclaration
-  definitions: IDefinitionsMap
+  schema: ISchema
 }
 
 export type ISerializedType = typeof type
