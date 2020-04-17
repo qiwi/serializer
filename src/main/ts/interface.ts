@@ -4,7 +4,13 @@ export const type = Symbol('Serialized')
 
 export enum ISourceType {
   global,
-  module
+  module,
+  local
+}
+
+export enum ISourceRelation {
+  reference,
+  proto
 }
 
 export type IDefinitionDeclaration = {
@@ -24,6 +30,7 @@ export type IDefinitionKey = string | number
 
 export type ISourceDefinition = {
   type: ISourceType
+  relation: ISourceRelation
   target: string
   path: string
 }
