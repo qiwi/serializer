@@ -12,14 +12,14 @@ describe('util',() => {
       const modules = getRegularModulesList()
       const module1 = require.resolve('../../main/ts/util')
       const module2 = require.resolve('./stub/A')
-
+console.log('modules=', modules)
       expect(A).toBeDefined()
       expect(modules.includes(module1)).toBeTruthy()
       expect(modules.includes(module2)).toBeTruthy()
     })
   })
 
-  describe('#getCoreModulesList', () => {
+  xdescribe('#getCoreModulesList', () => {
     it('returns list of core modules', () => {
       const modules = getCoreModulesList()
 
@@ -28,7 +28,7 @@ describe('util',() => {
     })
   })
 
-  describe('#getModules', () => {
+  xdescribe('#getModules', () => {
     it('returns loaded module refs', () => {
       const modules = getModules()
       const moduleA = require.resolve('./stub/A')

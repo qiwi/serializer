@@ -1,7 +1,19 @@
-import {foo} from '../../main/ts'
+import {
+  // serialize,
+  getGeneratorVersion,
+} from '../../main/ts'
 
-describe('',() => {
-  it('', () => {
-    expect(foo).toBe('bar')
+describe('#getGeneratorVersion', () => {
+  it('returns actual generator version', () => {
+    expect(getGeneratorVersion()).toMatch(/^@qiwi\/serialize@.+$/)
   })
+})
+
+describe('#serialize', () => {
+  it('', () => {})
+})
+
+
+describe('#deserialize', () => {
+  it('', () => {})
 })
