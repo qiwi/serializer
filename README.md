@@ -29,3 +29,8 @@ const restored: A = deserialize(serialized)
 
 console.log(restored instanceof A) // true
 ```
+
+## Refs
+* [https://stackoverflow.com/questions/9791925/list-of-currently-loaded-node-js-modules](https://stackoverflow.com/questions/9791925/list-of-currently-loaded-node-js-modules)
+* [https://github.com/facebook/jest/issues/5120](https://github.com/facebook/jest/issues/5120)
+* [https://github.com/facebook/jest/issues/5741](https://github.com/facebook/jest/issues/5741)
