@@ -1,11 +1,13 @@
 import {A} from './stub/A'
 import {
   getRegularModulesList,
-  getCoreModulesList
+  getCoreModulesList,
+  getModules
 } from '../../main/ts/util'
+import * as fs from 'fs'
 
 describe('util',() => {
-  describe('#getLoadedModules', () => {
+  describe('#getRegularModulesList', () => {
     it('returns list of loaded modules', () => {
       const modules = getRegularModulesList()
       const module1 = require.resolve('../../main/ts/util')
@@ -17,12 +19,22 @@ describe('util',() => {
     })
   })
 
-  describe('#getCoreModules', () => {
+  describe('#getCoreModulesList', () => {
     it('returns list of core modules', () => {
       const modules = getCoreModulesList()
 
       expect(modules.length).toBeGreaterThan(1)
       expect(modules.includes('fs')).toBeTruthy()
+    })
+  })
+
+  describe('#getModules', () => {
+    it('returns loaded module refs', () => {
+      const modules = getModules()
+      const moduleA = require.resolve('./stub/A')
+
+      expect(modules['fs']).toBe(fs)
+      expect(modules[moduleA].A).toBe(A)
     })
   })
 })
