@@ -1,15 +1,12 @@
 import {
   findKey,
-  isObject
+  isObject,
 } from './util'
 
-
 export const findRefIn = (target: any, area: any) =>
-  findKey(Object.getOwnPropertyDescriptors(area), ({value}) => {
-    const ref = value
-
-    return isObject(ref) && target === ref
-  })
+  findKey(Object.getOwnPropertyDescriptors(area), ({value}) =>
+    isObject(value) && target === value,
+  )
 
 export const findRefInGlobal = (target: any) => findRefIn(target, global)
 

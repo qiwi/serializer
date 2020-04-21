@@ -14,7 +14,7 @@ describe('#serializeValue / #deserializeValue', () => {
   it('serializes regular object', () => {
     const target = {
       foo: 'bar',
-      baz: {qux: 1}
+      baz: {qux: 1},
     }
     const serialized = serializeValue(target)
     const restored = deserializeValue(serialized)
@@ -24,20 +24,19 @@ describe('#serializeValue / #deserializeValue', () => {
       properties: {
         foo: {
           type: 'string',
-          value: 'bar'
+          value: 'bar',
         },
         baz: {
           type: 'object',
           properties: {
             qux: {
               type: 'number',
-              value: 1
-            }
-          }
-        }
-      }
+              value: 1,
+            },
+          },
+        },
+      },
     })
     expect(restored).toEqual(target)
   })
 })
-

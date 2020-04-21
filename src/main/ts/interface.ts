@@ -5,12 +5,12 @@ export const type = 'serialized'
 export enum ISourceType {
   global,
   module,
-  local
+  local,
 }
 
 export enum ISourceRelation {
   reference,
-  proto
+  proto,
 }
 
 export type IDefinedValue = string | number | null

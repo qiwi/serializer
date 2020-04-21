@@ -5,7 +5,7 @@ import {
   IDefinedValue,
   IDefinitionsMap,
   ISourceDefinition,
-  type
+  type,
 } from './interface'
 import {sync as getPkg} from 'read-pkg-up'
 import {
@@ -50,7 +50,7 @@ export const serializeValue = (target: any, defs?: IDefinitionsMap): ISerialized
     properties = mapValues(target, (item: any) => serializeValue(item, definitions))
   }
 
-  if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined'){
+  if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined') {
     value = target
   }
 
@@ -74,7 +74,7 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
   const definitions: IDefinitionsMap = defs || serialized.definitions || {}
 
   // use isPrimitive?
-  if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined'){
+  if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined') {
     return value
   }
 
@@ -87,4 +87,3 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
   }
 
 }
-

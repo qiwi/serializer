@@ -42,7 +42,7 @@ export const getModules = () => getModulesList().reduce((m, id) => {
 
 export const getTargetType = (target: unknown): string => {
   if (target === null) {
-    return 'null';
+    return 'null'
   }
 
   if (Array.isArray(target)) {

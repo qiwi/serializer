@@ -10,7 +10,7 @@ describe('finder', () => {
     it('returns key ref if found', () => {
       const foo = {}
       const area = {
-        bar: foo
+        bar: foo,
       }
       expect(findRefIn(foo, area)).toBe('bar')
     })
@@ -18,7 +18,7 @@ describe('finder', () => {
     it('returns undefined otherwise', () => {
       const foo = {}
       const area = {
-        bar: foo
+        bar: foo,
       }
       expect(findRefIn({}, area)).toBeUndefined()
     })
@@ -48,5 +48,3 @@ describe('finder', () => {
     })
   })
 })
-
-
