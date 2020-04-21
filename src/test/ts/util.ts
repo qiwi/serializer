@@ -2,7 +2,8 @@ import {A} from './stub/A'
 import {
   getRegularModulesList,
   getCoreModulesList,
-  getModules
+  getModules,
+  getTargetType,
 } from '../../main/ts/util'
 import * as fs from 'fs'
 
@@ -12,14 +13,14 @@ describe('util',() => {
       const modules = getRegularModulesList()
       const module1 = require.resolve('../../main/ts/util')
       const module2 = require.resolve('./stub/A')
-console.log('modules=', modules)
+
       expect(A).toBeDefined()
       expect(modules.includes(module1)).toBeTruthy()
       expect(modules.includes(module2)).toBeTruthy()
     })
   })
 
-  xdescribe('#getCoreModulesList', () => {
+  describe('#getCoreModulesList', () => {
     it('returns list of core modules', () => {
       const modules = getCoreModulesList()
 
@@ -28,13 +29,28 @@ console.log('modules=', modules)
     })
   })
 
-  xdescribe('#getModules', () => {
+  describe('#getModules', () => {
     it('returns loaded module refs', () => {
       const modules = getModules()
       const moduleA = require.resolve('./stub/A')
 
       expect(modules['fs']).toBe(fs)
       expect(modules[moduleA].A).toBe(A)
+    })
+  })
+
+  describe('#getTargetType', () => {
+    const cases = [
+      [null, 'null'],
+      ['foo', 'string'],
+      [1, 'number'],
+      [true, 'boolean']
+    ]
+
+    cases.forEach(([target, result]) => {
+      it(`detects ${target} as ${result}`, () => {
+        expect(getTargetType(target)).toBe(result)
+      })
     })
   })
 })

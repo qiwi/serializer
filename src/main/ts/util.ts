@@ -10,3 +10,11 @@ export const getModules = () => getModulesList().reduce((m, id) => {
   m[id] = require(id)
   return m
 }, {})
+
+export const getTargetType = (target: unknown): string => {
+  if (target === null) {
+    return 'null';
+  }
+
+  return typeof target
+}
