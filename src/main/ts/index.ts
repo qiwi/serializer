@@ -9,6 +9,7 @@ import {
 } from './interface'
 import {sync as getPkg} from 'read-pkg-up'
 import {
+  map,
   mapValues,
   getTargetType,
   clear,
@@ -58,3 +59,27 @@ export const serializeValue = (target: any, defs?: IDefinitionsMap): ISerialized
   })
 }
 
+export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitionsMap): any => {
+  const {
+    type,
+    value,
+    properties,
+    // source,
+  } = serialized
+
+  const definitions: IDefinitionsMap = defs || serialized.definitions || {}
+
+  // use isPrimitive?
+  if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined'){
+    return value
+  }
+
+  if (type === 'object') {
+    return mapValues(properties || {}, (item: ISerializedValue) => deserializeValue(item, definitions))
+  }
+
+  if (type === 'array') {
+    return map(properties || [], (item: ISerializedValue) => deserializeValue(item, definitions))
+  }
+
+}

@@ -7,6 +7,7 @@ import {
 } from 'lodash'
 
 export {
+  map,
   mapValues,
   pickBy,
 } from 'lodash'

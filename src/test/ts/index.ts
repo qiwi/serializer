@@ -1,5 +1,6 @@
 import {
   serializeValue,
+  deserializeValue,
   getGeneratorVersion,
 } from '../../main/ts'
 
@@ -9,12 +10,16 @@ describe('#getGeneratorVersion', () => {
   })
 })
 
-describe('#serializeValue', () => {
+describe('#serializeValue / #deserializeValue', () => {
   it('serializes regular object', () => {
-    expect(serializeValue({
+    const target = {
       foo: 'bar',
       baz: {qux: 1}
-    })).toEqual({
+    }
+    const serialized = serializeValue(target)
+    const restored = deserializeValue(serialized)
+
+    expect(serialized).toEqual({
       type: 'object',
       properties: {
         foo: {
@@ -32,10 +37,7 @@ describe('#serializeValue', () => {
         }
       }
     })
+    expect(restored).toEqual(target)
   })
 })
 
-
-describe('#deserialize', () => {
-  it('', () => {})
-})
