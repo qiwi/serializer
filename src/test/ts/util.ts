@@ -44,7 +44,10 @@ describe('util',() => {
       [null, 'null'],
       ['foo', 'string'],
       [1, 'number'],
-      [true, 'boolean']
+      [true, 'boolean'],
+      [[], 'array'],
+      [{}, 'object'],
+      [undefined, 'undefined'],
     ]
 
     cases.forEach(([target, result]) => {

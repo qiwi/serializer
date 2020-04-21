@@ -1,5 +1,5 @@
 import {
-  // serialize,
+  serializeValue,
   getGeneratorVersion,
 } from '../../main/ts'
 
@@ -9,8 +9,30 @@ describe('#getGeneratorVersion', () => {
   })
 })
 
-describe('#serialize', () => {
-  it('', () => {})
+describe('#serializeValue', () => {
+  it('serializes regular object', () => {
+    expect(serializeValue({
+      foo: 'bar',
+      baz: {qux: 1}
+    })).toEqual({
+      type: 'object',
+      properties: {
+        foo: {
+          type: 'string',
+          value: 'bar'
+        },
+        baz: {
+          type: 'object',
+          properties: {
+            qux: {
+              type: 'number',
+              value: 1
+            }
+          }
+        }
+      }
+    })
+  })
 })
 
 

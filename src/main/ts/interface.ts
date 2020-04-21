@@ -1,6 +1,6 @@
 import {IMetaTypedValue} from '@qiwi/substrate'
 
-export const type = Symbol('Serialized')
+export const type = 'serialized'
 
 export enum ISourceType {
   global,
@@ -13,8 +13,11 @@ export enum ISourceRelation {
   proto
 }
 
+export type IDefinedValue = string | number | null
+
 export type IDefinitionDeclaration = {
   type: string // TODO enum
+  value?: IDefinedValue,
   properties?: IDefinitionsMap
   definitions?: IDefinitionsMap
   source?: ISourceDefinition
@@ -39,13 +42,12 @@ export type IDefinitionsMap = {
   [key in IDefinitionKey]: IDefinition
 }
 
-export type ISchema = IDefinitionDeclaration
+export type ISerializedValue = IDefinitionDeclaration
 
 export type ISerializedMeta = {
   generator: string
-  schema: ISchema
 }
 
 export type ISerializedType = typeof type
 
-export type ISerialized = IMetaTypedValue<any, ISerializedType, ISerializedMeta>
+export type ISerialized = IMetaTypedValue<ISerializedValue, ISerializedType, ISerializedMeta>

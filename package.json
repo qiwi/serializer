@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@qiwi/substrate": "^1.18.26",
+    "@types/lodash": "^4.14.150",
     "@types/nanoid": "^2.1.0",
     "builtin-modules": "^3.1.0",
     "nanoid": "^3.1.3",
