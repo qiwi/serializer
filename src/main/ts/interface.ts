@@ -35,7 +35,7 @@ export type ISourceDefinition = {
   type: ISourceType
   relation: ISourceRelation
   target: string
-  path: string
+  path?: string
 }
 
 export type IDefinitionsMap = {
@@ -45,7 +45,8 @@ export type IDefinitionsMap = {
 export type ISerializedValue = IDefinitionDeclaration
 
 export type ISerializedMeta = {
-  generator: string
+  generator: string,
+  timestamp?: number
 }
 
 export type ISerializedType = typeof type

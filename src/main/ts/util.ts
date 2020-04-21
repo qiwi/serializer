@@ -10,6 +10,9 @@ export {
   map,
   mapValues,
   pickBy,
+  once,
+  findKey,
+  isObject,
 } from 'lodash'
 
 export const clear = (obj: any) => {
