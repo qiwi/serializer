@@ -13,19 +13,23 @@ import {
   mapValues,
   getTargetType,
   clear,
+  once,
 } from './util'
 
-export const getGeneratorVersion = () => {
+export const getGeneratorVersion = once(() => {
   const pkgJson: any = getPkg()?.packageJson
 
   return `${pkgJson.name}@${pkgJson.version}`
-}
+})
+
+export const getMeta = (): ISerializedMeta => ({
+  timestamp: Date.now(),
+  generator: getGeneratorVersion(),
+})
 
 export const serialize = (target: any): ISerialized => {
   const value: ISerializedValue = serializeValue(target)
-  const meta: ISerializedMeta = {
-    generator: getGeneratorVersion(),
-  }
+  const meta: ISerializedMeta = getMeta()
 
   return {
     type,
@@ -83,3 +87,4 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
   }
 
 }
+
