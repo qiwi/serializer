@@ -14,7 +14,7 @@ import * as fs from 'fs'
 
 describe('finder', () => {
   describe('#findSource', () => {
-    it('finds in global', () => {
+    it('finds ref in global', () => {
       expect(findSource(Array)).toEqual({
         type: 'global',
         relation: 'reference',
@@ -22,10 +22,24 @@ describe('finder', () => {
       })
     })
 
-    it('finds in modules', () => {
+    it('finds undefined for literal arrays and objects', () => {
+      expect(findSource([])).toBeUndefined()
+      expect(findSource({})).toBeUndefined()
+    })
+
+    it('finds ref in modules', () => {
       expect(findSource(SomeClass)).toEqual({
         type: 'module',
         relation: 'reference',
+        target: 'A',
+        path: require.resolve('./stub/A'),
+      })
+    })
+
+    it('finds proto in modules', () => {
+      expect(findSource(new A())).toEqual({
+        type: 'module',
+        relation: 'proto',
         target: 'A',
         path: require.resolve('./stub/A'),
       })

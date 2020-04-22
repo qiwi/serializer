@@ -9,25 +9,26 @@ import {ISourceDefinition, ISourceRelation, ISourceType} from './interface'
 
 export const findSource = (target: any): ISourceDefinition | undefined => {
   const moduleList = getModulesList()
-  const areas = [
-    ...moduleList.map(id => ({
-      type: ISourceType.module,
-      path: id
-    })),
-    {
-      type: ISourceType.global
-    }
-  ].reduce((m, v) => {
-    m.push({
-      relation: ISourceRelation.reference,
-      ...v
-    }, {
-      relation: ISourceRelation.proto,
-      ...v
-    })
 
-    return m
-  }, [] as any)
+  const areas = [
+    ...moduleList.reduce((m, id) => {
+      m.push({
+        relation: ISourceRelation.reference,
+        type: ISourceType.module,
+        path: id
+      }, {
+        relation: ISourceRelation.proto,
+        type: ISourceType.module,
+        path: id
+      })
+
+      return m
+    }, []),
+    {
+      type: ISourceType.global,
+      relation: ISourceRelation.reference,
+    }
+  ]
 
   return findResult(areas,({type, path, relation}: ISourceDefinition) => {
     const _target = relation === ISourceRelation.reference
