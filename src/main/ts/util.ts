@@ -3,6 +3,7 @@ import {
   negate,
   isEmpty,
   isObject,
+  find,
 } from 'lodash'
 
 export {
@@ -38,4 +39,17 @@ export const getTargetType = (target: unknown): string => {
   }
 
   return typeof target
+}
+
+// Returns the first non-falsy predicate result
+export const findResult = (target: any, predicate: any) => {
+  let res
+
+  find(target, (...args: any[]) => {
+    res = predicate(...args)
+
+    return res
+  })
+
+  return res || undefined
 }
