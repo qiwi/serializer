@@ -13,6 +13,7 @@ export {
   once,
   findKey,
   isObject,
+  sortBy,
 } from 'lodash'
 
 export const clear = (obj: any) => {

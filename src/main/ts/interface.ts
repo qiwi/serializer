@@ -3,14 +3,14 @@ import {IMetaTypedValue} from '@qiwi/substrate'
 export const type = 'serialized'
 
 export enum ISourceType {
-  global,
-  module,
-  local,
+  global = 'global',
+  module = 'module',
+  local = 'local',
 }
 
 export enum ISourceRelation {
-  reference,
-  proto,
+  reference = 'reference',
+  proto = 'proto',
 }
 
 export type IDefinedValue = string | number | null

@@ -1,4 +1,5 @@
 import {
+  findSource,
   findRefIn,
   findRefInGlobal,
   findRefInModule,
@@ -12,6 +13,25 @@ import {A, A as SomeClass} from './stub/A'
 import * as fs from 'fs'
 
 describe('finder', () => {
+  describe('#findSource', () => {
+    it('finds in global', () => {
+      expect(findSource(Array)).toEqual({
+        type: 'global',
+        relation: 'reference',
+        target: 'Array',
+      })
+    })
+
+    it('finds in modules', () => {
+      expect(findSource(SomeClass)).toEqual({
+        type: 'module',
+        relation: 'reference',
+        target: 'A',
+        path: require.resolve('./stub/A'),
+      })
+    })
+  })
+
   describe('#findRefIn', () => {
     it('returns key ref if found', () => {
       const foo = {}
