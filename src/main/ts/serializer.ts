@@ -1,20 +1,16 @@
-import {
-  ISerializedValue,
-  ISerialized,
-  ISerializedMeta,
-  IDefinedValue,
-  IDefinitionsMap,
-  ISourceDefinition,
-  type,
-} from './interface'
 import {sync as getPkg} from 'read-pkg-up'
 import {
-  map,
-  mapValues,
-  getTargetType,
-  clear,
-  once,
-} from './util'
+  IDefinedValue,
+  IDefinitionsMap,
+  ISerialized,
+  ISerializedMeta,
+  ISerializedValue,
+  ISourceDefinition,
+  ISourceRelation,
+  type,
+} from './interface'
+import {clear, getTargetType, map, mapValues, once,} from './util'
+import {findSource, loadSource} from './finder'
 
 export const getGeneratorVersion = once(() => {
   const pkgJson: any = getPkg()?.packageJson
@@ -38,6 +34,14 @@ export const serialize = (target: any): ISerialized => {
   }
 }
 
+export const deserialize = (serialized: ISerialized): any => {
+  const {
+    value,
+  } = serialized
+
+  return deserializeValue(value)
+}
+
 export const serializeValue = (target: any, defs?: IDefinitionsMap): ISerializedValue => {
   const type = getTargetType(target)
   const definitions = defs ? undefined : {}
@@ -47,7 +51,10 @@ export const serializeValue = (target: any, defs?: IDefinitionsMap): ISerialized
   let source: ISourceDefinition | undefined
 
   if (type === 'object' || type === 'array') {
-    properties = mapValues(target, (item: any) => serializeValue(item, definitions))
+    source = findSource(target)
+    if (!source || source.relation === ISourceRelation.proto) {
+      properties = mapValues(target, (item: any) => serializeValue(item, definitions))
+    }
   }
 
   if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined') {
@@ -68,7 +75,7 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
     type,
     value,
     properties,
-    // source,
+    source,
   } = serialized
 
   const definitions: IDefinitionsMap = defs || serialized.definitions || {}
@@ -79,7 +86,19 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
   }
 
   if (type === 'object') {
-    return mapValues(properties || {}, (item: ISerializedValue) => deserializeValue(item, definitions))
+    const stub = {...properties}
+
+    if (source) {
+      const ref = loadSource(source)
+      const { relation } = source
+
+      if (relation === ISourceRelation.reference) {
+        return ref
+      }
+      Object.setPrototypeOf(stub, ref.prototype)
+    }
+
+    return mapValues(stub, (item: ISerializedValue) => deserializeValue(item, definitions))
   }
 
   if (type === 'array') {

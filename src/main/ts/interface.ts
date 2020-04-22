@@ -34,7 +34,7 @@ export type IDefinitionKey = string | number
 export type ISourceDefinition = {
   type: ISourceType
   relation: ISourceRelation
-  target: string
+  target?: string
   path?: string
 }
 

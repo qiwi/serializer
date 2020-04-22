@@ -1,15 +1,19 @@
 import * as CORE_MODULES from 'builtin-modules'
-import {
-  findKey,
-  isObject,
-  findResult,
-  clear,
-} from './util'
+import {clear, findKey, findResult, isObject,} from './util'
 import {ISourceDefinition, ISourceRelation, ISourceType} from './interface'
+
+export const loadSource = ({type, path, target}: ISourceDefinition): any => {
+  const source = type === ISourceType.module
+    ? require(path + '')
+    : global
+
+  return target
+    ? source[target]
+    : source
+}
 
 export const findSource = (target: any): ISourceDefinition | undefined => {
   const moduleList = getModulesList()
-
   const areas = [
     ...moduleList.reduce((m, id) => {
       m.push({
@@ -33,7 +37,7 @@ export const findSource = (target: any): ISourceDefinition | undefined => {
   return findResult(areas,({type, path, relation}: ISourceDefinition) => {
     const _target = relation === ISourceRelation.reference
       ? target
-      : target.__proto__.constructor
+      : target.__proto__?.constructor
 
     const ref = type === ISourceType.global
       ? findRefInGlobal(_target)
@@ -44,7 +48,7 @@ export const findSource = (target: any): ISourceDefinition | undefined => {
         type,
         path,
         relation,
-        target: ref
+        target: typeof ref === 'string' ? ref : undefined,
       })
       : false
   })
@@ -52,7 +56,7 @@ export const findSource = (target: any): ISourceDefinition | undefined => {
 }
 
 export const findRefIn = (target: any, area: any) =>
-  findKey(Object.getOwnPropertyDescriptors(area), ({value}) =>
+  target === area || findKey(Object.getOwnPropertyDescriptors(area), ({value}) =>
     isObject(value) && target === value,
   )
 
