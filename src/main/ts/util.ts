@@ -1,4 +1,3 @@
-import * as CORE_MODULES from 'builtin-modules'
 import {
   isUndefined,
   negate,
@@ -28,17 +27,6 @@ export const clear = (obj: any) => {
 }
 
 export const isDefined = negate(isUndefined)
-
-export const getCoreModulesList = () => CORE_MODULES
-
-export const getRegularModulesList = (): any => Object.keys(require.cache)
-
-export const getModulesList = () => [...getCoreModulesList(), ...getRegularModulesList()]
-
-export const getModules = () => getModulesList().reduce((m, id) => {
-  m[id] = require(id)
-  return m
-}, {})
 
 export const getTargetType = (target: unknown): string => {
   if (target === null) {
