@@ -52,6 +52,7 @@ describe('serializer', () => {
         foo: 'bar',
         baz: {qux: 1},
         a,
+        arr: [1, null]
         // SomeClass
       }
       const serialized = serializeValue(target)
@@ -91,10 +92,24 @@ describe('serializer', () => {
               target: 'A',
               type: 'module'
             }
-          }/*,
-          SomeClass: {
-            type: 'function'
-          }*/
+          },
+          arr: {
+            properties: {
+              0: {
+                type: 'number',
+                value: 1,
+              },
+              1: {
+                type: 'null',
+                value: null,
+              },
+            },
+            type: 'array',
+          },
+        /*,
+        SomeClass: {
+          type: 'function'
+        }*/
         },
       })
       expect(restored).toEqual(target)

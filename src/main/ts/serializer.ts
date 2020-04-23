@@ -9,8 +9,17 @@ import {
   ISourceRelation,
   type,
 } from './interface'
-import {clear, getTargetType, map, mapValues, once,} from './util'
-import {findSource, loadSource} from './finder'
+import {
+  clear,
+  getTargetType,
+  map,
+  mapValues,
+  once,
+} from './util'
+import {
+  findSource,
+  loadSource
+} from './finder'
 
 export const getGeneratorVersion = once(() => {
   const pkgJson: any = getPkg()?.packageJson
@@ -85,8 +94,11 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
     return value
   }
 
-  if (type === 'object') {
+  if (type === 'object' || type === 'array') {
     const stub = {...properties}
+    const mapper: Function = type === 'array'
+      ? map
+      : mapValues
 
     if (source) {
       const ref = loadSource(source)
@@ -98,11 +110,7 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
       Object.setPrototypeOf(stub, ref.prototype)
     }
 
-    return mapValues(stub, (item: ISerializedValue) => deserializeValue(item, definitions))
-  }
-
-  if (type === 'array') {
-    return map(properties || [], (item: ISerializedValue) => deserializeValue(item, definitions))
+    return mapper(stub, (item: ISerializedValue) => deserializeValue(item, definitions))
   }
 
 }
