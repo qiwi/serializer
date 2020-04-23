@@ -2,8 +2,8 @@ import {
   isUndefined,
   negate,
   isEmpty,
-  isObject,
   find,
+  isObject,
 } from 'lodash'
 
 export {
@@ -12,8 +12,8 @@ export {
   pickBy,
   once,
   findKey,
-  isObject,
   sortBy,
+  isObject,
 } from 'lodash'
 
 export const clear = (obj: any) => {
