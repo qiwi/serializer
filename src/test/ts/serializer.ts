@@ -3,8 +3,7 @@ import {
   deserializeValue,
   getGeneratorVersion,
 } from '../../main/ts'
-// import {A, A as SomeClass} from './stub/A'
-import {A} from './stub/A'
+import {A, A as SomeClass} from './stub/A'
 import * as fs from 'fs'
 
 describe('serializer', () => {
@@ -52,8 +51,8 @@ describe('serializer', () => {
         foo: 'bar',
         baz: {qux: 1},
         a,
-        arr: [1, null]
-        // SomeClass
+        arr: [1, null],
+        SomeClass
       }
       const serialized = serializeValue(target)
       const restored = deserializeValue(serialized)
@@ -106,10 +105,15 @@ describe('serializer', () => {
             },
             type: 'array',
           },
-        /*,
-        SomeClass: {
-          type: 'function'
-        }*/
+          SomeClass: {
+            source: {
+              path: '/Users/antongolub/projects/serializer/src/test/ts/stub/A.ts',
+              relation: 'reference',
+              target: 'A',
+              type: 'module'
+            },
+            type: 'function'
+          },
         },
       })
       expect(restored).toEqual(target)
