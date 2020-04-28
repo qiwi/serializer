@@ -43,12 +43,16 @@ export const findSource = (target: any): ISourceDefinition | undefined => {
       ? findRefInGlobal(_target)
       : findRefInModule(_target, path + '')
 
+    const refTarget = typeof ref === 'string'
+      ? ref
+      : undefined
+
     return ref
       ? clear({
         type,
         path,
         relation,
-        target: typeof ref === 'string' ? ref : undefined,
+        target: refTarget,
       })
       : false
   })
