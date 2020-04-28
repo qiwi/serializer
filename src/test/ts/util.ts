@@ -1,6 +1,6 @@
 import {
   getTargetType,
-  findResult
+  findResult,
 } from '../../main/ts/util'
 
 describe('util',() => {
@@ -27,7 +27,7 @@ describe('util',() => {
       const arr = ['a', 'b']
 
       expect(findResult(arr, (v: string) =>
-        v === 'a' ? v.toUpperCase() : false
+        v === 'a' ? v.toUpperCase() : false,
       )).toBe('A')
     })
 
@@ -35,7 +35,7 @@ describe('util',() => {
       const arr = ['a', 'b']
 
       expect(findResult(arr, (v: string) =>
-        v === 'c' ? v.toUpperCase() : false
+        v === 'c' ? v.toUpperCase() : false,
       )).toBeUndefined()
     })
   })

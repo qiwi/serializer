@@ -18,7 +18,7 @@ import {
 } from './util'
 import {
   findSource,
-  loadSource
+  loadSource,
 } from './finder'
 
 export const getGeneratorVersion = once(() => {
@@ -112,7 +112,7 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
 
     if (source) {
       const ref = loadSource(source)
-      const { relation } = source
+      const {relation} = source
 
       if (relation === ISourceRelation.reference) {
         return ref

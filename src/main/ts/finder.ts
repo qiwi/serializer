@@ -1,5 +1,5 @@
 import * as CORE_MODULES from 'builtin-modules'
-import {clear, findKey, findResult, isObject,} from './util'
+import {clear, findKey, findResult, isObject} from './util'
 import {ISourceDefinition, ISourceRelation, ISourceType} from './interface'
 
 export const loadSource = ({type, path, target}: ISourceDefinition): any => {
@@ -19,11 +19,11 @@ export const findSource = (target: any): ISourceDefinition | undefined => {
       m.push({
         relation: ISourceRelation.reference,
         type: ISourceType.module,
-        path: id
+        path: id,
       }, {
         relation: ISourceRelation.proto,
         type: ISourceType.module,
-        path: id
+        path: id,
       })
 
       return m
@@ -31,7 +31,7 @@ export const findSource = (target: any): ISourceDefinition | undefined => {
     {
       type: ISourceType.global,
       relation: ISourceRelation.reference,
-    }
+    },
   ]
 
   return findResult(areas,({type, path, relation}: ISourceDefinition) => {

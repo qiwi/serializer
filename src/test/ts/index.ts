@@ -2,7 +2,7 @@ import {
   serialize,
   deserialize,
   serializeValue,
-  deserializeValue
+  deserializeValue,
 } from '../../main/ts'
 
 describe('facade', () => {

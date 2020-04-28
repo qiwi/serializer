@@ -52,7 +52,7 @@ describe('serializer', () => {
         baz: {qux: 1},
         a,
         arr: [1, null],
-        SomeClass
+        SomeClass,
       }
       const serialized = serializeValue(target)
       const restored = deserializeValue(serialized)
@@ -81,16 +81,16 @@ describe('serializer', () => {
                 source: {
                   path: 'fs',
                   relation: 'reference',
-                  type: 'module'
-                }
+                  type: 'module',
+                },
               },
             },
             source: {
               path: '/Users/antongolub/projects/serializer/src/test/ts/stub/A.ts',
               relation: 'proto',
               target: 'A',
-              type: 'module'
-            }
+              type: 'module',
+            },
           },
           arr: {
             properties: {
@@ -110,9 +110,9 @@ describe('serializer', () => {
               path: '/Users/antongolub/projects/serializer/src/test/ts/stub/A.ts',
               relation: 'reference',
               target: 'A',
-              type: 'module'
+              type: 'module',
             },
-            type: 'function'
+            type: 'function',
           },
         },
       })
