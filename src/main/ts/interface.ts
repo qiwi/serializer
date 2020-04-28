@@ -46,6 +46,7 @@ export type ISerializedValue = IDefinitionDeclaration
 
 export type ISerializedMeta = {
   generator: string,
+  nodejs: string,
   timestamp?: number
 }
 

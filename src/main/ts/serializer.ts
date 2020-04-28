@@ -27,9 +27,12 @@ export const getGeneratorVersion = once(() => {
   return `${pkgJson.name}@${pkgJson.version}`
 })
 
+export const getNodejsVersion = () => process.version
+
 export const getMeta = (): ISerializedMeta => ({
   timestamp: Date.now(),
   generator: getGeneratorVersion(),
+  nodejs: getNodejsVersion(),
 })
 
 export const serialize = (target: any): ISerialized => {
