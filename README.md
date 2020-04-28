@@ -13,6 +13,9 @@ Therefore, yet another one incompatible format does not affect anything.
 * Serialized data should describe itself by meta (something like as regular file does: header + ext)
 * Classes refs may be found by scanning `require.cache` inners or globals
 
+## Status
+🚧 Work in progress 🚧 / Experimental / Early preview / pre-alpha version / 0.0.0-draft
+
 ## Install
 ```shell script
 yarn add @qiwi/serializer
