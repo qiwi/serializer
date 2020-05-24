@@ -1,4 +1,3 @@
-import {sync as getPkg} from 'read-pkg-up'
 import {
   IDefinedValue,
   IDefinitionsMap,
@@ -14,26 +13,15 @@ import {
   getTargetType,
   map,
   mapValues,
-  once,
 } from './util'
 import {
   findSource,
   loadSource,
 } from './finder'
 
-export const getGeneratorVersion = once(() => {
-  const pkgJson: any = getPkg()?.packageJson
-
-  return `${pkgJson.name}@${pkgJson.version}`
-})
-
-export const getNodejsVersion = () => process.version
-
-export const getMeta = (): ISerializedMeta => ({
-  timestamp: Date.now(),
-  generator: getGeneratorVersion(),
-  nodejs: getNodejsVersion(),
-})
+import {
+  getMeta,
+} from './meta'
 
 export const serialize = (target: any): ISerialized => {
   const value: ISerializedValue = serializeValue(target)

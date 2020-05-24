@@ -2,7 +2,7 @@ import {
   getGeneratorVersion,
   getMeta,
   getNodejsVersion,
-} from '../../main/ts'
+} from '../../main/ts/meta'
 
 describe('#getMeta', () => {
   it('returns proper meta', () => {
