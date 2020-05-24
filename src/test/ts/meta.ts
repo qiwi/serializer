@@ -2,14 +2,14 @@ import {
   getGeneratorVersion,
   getMeta,
   getNodejsVersion,
-} from '../../main/ts';
+} from '../../main/ts'
 
 describe('#getMeta', () => {
   it('returns proper meta', () => {
     expect(getMeta()).toEqual({
       timestamp: expect.any(Number),
       generator: getGeneratorVersion(),
-      nodejs: getNodejsVersion()
+      nodejs: getNodejsVersion(),
     })
   })
 })
@@ -22,6 +22,6 @@ describe('#getNodejsVersion', () => {
 
 describe('#getGeneratorVersion', () => {
   it('returns actual generator version', () => {
-    expect(getGeneratorVersion()).toMatch(/^@qiwi\/serialize@.+$/)
+    expect(getGeneratorVersion()).toMatch(/^@qiwi\/serializer@.+$/)
   })
 })

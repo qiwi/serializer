@@ -1,5 +1,5 @@
 {
-  "name": "@qiwi/serialize",
+  "name": "@qiwi/serializer",
   "version": "0.0.0",
   "description": "Utility to serialize/deserialize js object and restore its context as close as possible",
   "repository": "git@github.com:qiwi/serialize.git",
@@ -25,14 +25,11 @@
     "lint:fix": "yarn lint --fix",
     "test": "yarn lint && yarn jest",
     "clean": "rimraf target typings",
-    "build": "yarn clean && yarn build:es5 && yarn build:es6 && yarn build:ts && yarn libdef && yarn docs && yarn uglify",
+    "build": "yarn clean && yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
     "build:ts": "cp -r src/main/ts/ target/ts/",
-    "dtsgen": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/serialize/target/es5 --name @qiwi/serialize --main @qiwi/serialize/target/es5/index --moduleResolution node",
-    "flowgen": "flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
-    "libdef": "yarn dtsgen && yarn libdeffix && yarn flowgen",
-    "libdeffix": "node -r esm ./scripts/js/libdef-fix.js --dts=./typings/index.d.ts  --prefix=@qiwi/serialize/target/es5",
+    "build:libdef": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/serializer/target/es5 --name @qiwi/serializer --main @qiwi/serializer/target/es5/index --moduleResolution node && libdeffix --dts=./typings/index.d.ts --prefix=@qiwi/serializer/target/es5 && flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
     "test:report": "yarn test && yarn push:report",
     "push:report": "yarn coveralls:push",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
@@ -50,6 +47,7 @@
     "tslib": "^1.11.1"
   },
   "devDependencies": {
+    "@qiwi/libdefkit": "^1.0.2",
     "@qiwi/semantic-release-gh-pages-plugin": "^1.16.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
@@ -60,11 +58,8 @@
     "@types/jest-json-schema": "^2.1.2",
     "coveralls": "^3.1.0",
     "dts-generator": "^3.0.0",
-    "esm": "^3.2.25",
-    "flowgen": "1.10.0",
     "jest": "^25.4.0",
     "lodash": "^4.17.15",
-    "replace-in-file": "^6.0.0",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.0.7",
     "terser": "^4.6.12",
@@ -77,6 +72,7 @@
   },
   "keywords": [
     "serialize",
+    "serializer",
     "mock",
     "spy"
   ],
