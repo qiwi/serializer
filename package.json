@@ -42,7 +42,7 @@
     "@types/lodash": "^4.14.182",
     "@types/nanoid": "^2.1.0",
     "builtin-modules": "^3.3.0",
-    "nanoid": "^3.1.9",
+    "nanoid": "^3.1.31",
     "read-pkg-up": "^7.0.1",
     "tslib": "^2.4.0"
   },
