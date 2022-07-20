@@ -1,0 +1,106 @@
+{
+  "ci_service": {
+    "branch": "master",
+    "build_identifier": "",
+    "build_url": "",
+    "commit_sha": "ad954fb719c8355d74d19d2483ee45e3e29f1cbd",
+    "committed_at": 1658323169,
+    "name": "true"
+  },
+  "environment": {
+    "gem_version": "3.1.2",
+    "package_version": "",
+    "pwd": "/home/runner/work/serializer/serializer",
+    "prefix": "/home/runner/work/serializer/serializer",
+    "rails_root": "",
+    "reporter_version": "0.10.3",
+    "simplecov_root": ""
+  },
+  "git": {
+    "branch": "master",
+    "head": "ad954fb719c8355d74d19d2483ee45e3e29f1cbd",
+    "committed_at": 1658323169
+  },
+  "covered_percent": 96.64429530201343,
+  "covered_strength": 0,
+  "line_counts": {
+    "missed": 5,
+    "covered": 144,
+    "total": 149
+  },
+  "source_files": [
+    {
+      "blob_id": "2ae0ba706bb255519259b613a61883d0da4b04d6",
+      "coverage": "[null,3,3,3,3,3,3,3,3,3,null,null,3,null,null,null,3,3,13,13,880,null,null,null,null,null,null,null,null,880,null,null,null,null,null,null,13,null,1633,1633,null,null,1633,null,null,1633,null,null,1633,null,null,null,null,null,null,null,null,null,3,3,1639,41964,41964,null,null,3,10,3,1627,3,16,3,16,3,15,3,3,48,48,null,3]",
+      "covered_percent": 100,
+      "covered_strength": 2318.5,
+      "line_counts": {
+        "missed": 0,
+        "covered": 42,
+        "total": 42
+      },
+      "name": "src/main/ts/finder.ts"
+    },
+    {
+      "blob_id": "d0b5d23fa77a657b63d98fdaffead87c09c92378",
+      "coverage": "[null,2,2,2]",
+      "covered_percent": 100,
+      "covered_strength": 2,
+      "line_counts": {
+        "missed": 0,
+        "covered": 3,
+        "total": 3
+      },
+      "name": "src/main/ts/index.ts"
+    },
+    {
+      "blob_id": "4735d48158489fa962ad5385d7afe534c969b12f",
+      "coverage": "[null,3,3,3,null,3,3,3,3,null,null,3,3,3]",
+      "covered_percent": 100,
+      "covered_strength": 3,
+      "line_counts": {
+        "missed": 0,
+        "covered": 10,
+        "total": 10
+      },
+      "name": "src/main/ts/interface.ts"
+    },
+    {
+      "blob_id": "7eb1ae2c4321e9a3cd9af8fc314bf17922904c23",
+      "coverage": "[null,3,3,3,3,3,null,1,1,null,3,3,3,null,null,null,null,3]",
+      "covered_percent": 100,
+      "covered_strength": 2.6363636363636362,
+      "line_counts": {
+        "missed": 0,
+        "covered": 11,
+        "total": 11
+      },
+      "name": "src/main/ts/meta.ts"
+    },
+    {
+      "blob_id": "d221cce430d86d1c96b5bd615b20c45fe9a70f41",
+      "coverage": "[null,2,2,2,2,2,2,2,2,0,0,0,null,null,null,null,null,2,2,0,0,null,2,2,14,14,null,null,null,14,1,null,14,7,7,12,null,null,14,6,null,14,null,null,null,null,null,null,null,2,2,14,14,14,1,1,null,null,null,13,6,null,7,7,7,null,null,7,2,2,2,1,null,1,null,12,null,null,2]",
+      "covered_percent": 89.58333333333334,
+      "covered_strength": 5.375,
+      "line_counts": {
+        "missed": 5,
+        "covered": 43,
+        "total": 48
+      },
+      "name": "src/main/ts/serializer.ts"
+    },
+    {
+      "blob_id": "95a60364e4521e0f41ced4bd4c06211f266ba9a9",
+      "coverage": "[null,5,5,5,5,5,12,5,5,1638,5,41964,5,20,94,94,43,null,null,20,null,5,5,5,21,2,null,19,2,null,17,null,5,null,5,null,15,1636,1636,4908,null,1636,1636,null,15,null,5]",
+      "covered_percent": 100,
+      "covered_strength": 1585.8,
+      "line_counts": {
+        "missed": 0,
+        "covered": 35,
+        "total": 35
+      },
+      "name": "src/main/ts/util.ts"
+    }
+  ],
+  "repo_token": "48132e6f6042c22f32b20696094e3cbb0839bc29e8f390ffe79c61d716022dfd"
+}

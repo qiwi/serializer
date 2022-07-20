@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/serializer",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Utility to serialize/deserialize js object and restore its context as close as possible",
   "repository": "git@github.com:qiwi/serialize.git",
   "author": "Anton Golub <mailbox@antongolub.ru>",
