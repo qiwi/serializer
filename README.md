@@ -6,7 +6,7 @@ In JS:
 * We have no "classpaths", so we cannot bind class ref with its package/module.
 * `JSON.serialize`, `v8.serialize` does not produce any meta that could be used to restore object context (proto, bindings).
 
-There're... just a few JSON supersets that change the situation slightly: [json-schema](https://json-schema.org/), [serialize-javascript](https://github.com/yahoo/serialize-javascript)
+There are... just a few JSON supersets that change the situation slightly: [json-schema](https://json-schema.org/), [serialize-javascript](https://github.com/yahoo/serialize-javascript)
 Therefore, yet another one incompatible format does not affect anything.
 
 ## Suggestions
