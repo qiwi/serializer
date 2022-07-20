@@ -113,5 +113,4 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
 
     return mapper(stub, (item: ISerializedValue) => deserializeValue(item, definitions))
   }
-
 }

@@ -48,7 +48,9 @@ describe('serializer', () => {
         SomeClass,
       }
       const serialized = serializeValue(target)
-      const restored = deserializeValue(serialized)
+      const serializedJson = JSON.stringify(serialized, null, 2)
+      const restored = deserializeValue(JSON.parse(serializedJson))
+      const cwd = process.cwd()
 
       expect(serialized).toEqual({
         type: 'object',
@@ -79,7 +81,7 @@ describe('serializer', () => {
               },
             },
             source: {
-              path: '/Users/antongolub/projects/serializer/src/test/ts/stub/A.ts',
+              path: `${cwd}/src/test/ts/stub/A.ts`,
               relation: 'proto',
               target: 'A',
               type: 'module',
@@ -100,7 +102,7 @@ describe('serializer', () => {
           },
           SomeClass: {
             source: {
-              path: '/Users/antongolub/projects/serializer/src/test/ts/stub/A.ts',
+              path: `${cwd}/src/test/ts/stub/A.ts`,
               relation: 'reference',
               target: 'A',
               type: 'module',
