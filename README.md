@@ -1,12 +1,16 @@
-# serializer
-Utility to serialize/deserialize js object and restore its context as close as possible
+# @qiwi/serializer
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/7d9ced8d8d9d2ab8fc54/maintainability)](https://codeclimate.com/github/qiwi/serializer/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7d9ced8d8d9d2ab8fc54/test_coverage)](https://codeclimate.com/github/qiwi/serializer/test_coverage)
+
+> Utility to serialize/deserialize js object and restore its context as close as possible
 
 ## Motivation
 In JS:
 * We have no "classpaths", so we cannot bind class ref with its package/module.
 * `JSON.serialize`, `v8.serialize` does not produce any meta that could be used to restore object context (proto, bindings).
 
-There are... just a few JSON supersets that change the situation slightly: [json-schema](https://json-schema.org/), [serialize-javascript](https://github.com/yahoo/serialize-javascript)
+There are just a few JSON supersets that change the situation slightly: [json-schema](https://json-schema.org/), [serialize-javascript](https://github.com/yahoo/serialize-javascript).
 Therefore, yet another one incompatible format does not affect anything.
 
 ## Suggestions
