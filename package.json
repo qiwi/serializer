@@ -5,7 +5,9 @@
   "repository": "git@github.com:qiwi/serialize.git",
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "source": "src/main/ts/index.ts",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",
@@ -67,24 +69,5 @@
     "serializer",
     "mock",
     "spy"
-  ],
-  "release": {
-    "branch": "master",
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      "@qiwi/semantic-release-gh-pages-plugin"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "publish": [
-      "@semantic-release/npm",
-      "@semantic-release/github",
-      "@qiwi/semantic-release-gh-pages-plugin"
-    ]
-  }
+  ]
 }
