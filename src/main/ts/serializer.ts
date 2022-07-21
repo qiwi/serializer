@@ -50,6 +50,10 @@ export const serializeValue = (target: any, defs?: IDefinitionsMap): ISerialized
   let properties: IDefinitionsMap | undefined
   let source: ISourceDefinition | undefined
 
+  if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined') {
+    value = target
+  }
+
   if (type === 'function') {
     source = findSource(target)
   }
@@ -59,10 +63,6 @@ export const serializeValue = (target: any, defs?: IDefinitionsMap): ISerialized
     if (!source || source.relation === ISourceRelation.proto) {
       properties = mapValues(target, (item: any) => serializeValue(item, definitions))
     }
-  }
-
-  if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined') {
-    value = target
   }
 
   return clear({
@@ -84,15 +84,13 @@ export const deserializeValue = (serialized: ISerializedValue, defs?: IDefinitio
 
   const definitions: IDefinitionsMap = defs || serialized.definitions || {}
 
-  if (type === 'function') {
-    if (source) {
-      return loadSource(source)
-    }
-  }
-
   // use isPrimitive?
   if (type === 'string' || type === 'number' || type === 'null' || type === 'undefined') {
     return value
+  }
+
+  if (type === 'function' && source) {
+    return loadSource(source)
   }
 
   if (type === 'object' || type === 'array') {
