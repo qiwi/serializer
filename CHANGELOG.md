@@ -1,3 +1,8 @@
+## [1.0.2](https://github.com/qiwi/serializer/compare/v1.0.1...v1.0.2) (2022-07-21)
+
+### Fixes & improvements
+* perf: tech release ([1dad5eb](https://github.com/qiwi/serializer/commit/1dad5ebf1a819fe4fe371056b535e5769b4c4035))
+
 ## [1.0.1](https://github.com/qiwi/serializer/compare/v1.0.0...v1.0.1) (2022-07-21)
 
 ### Fixes & improvements
