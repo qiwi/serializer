@@ -3,8 +3,8 @@
     "branch": "master",
     "build_identifier": "",
     "build_url": "",
-    "commit_sha": "ad954fb719c8355d74d19d2483ee45e3e29f1cbd",
-    "committed_at": 1658323169,
+    "commit_sha": "174bbf7316a42bbf8df1367b072d0d3c9fb25b4a",
+    "committed_at": 1658382534,
     "name": "true"
   },
   "environment": {
@@ -18,17 +18,41 @@
   },
   "git": {
     "branch": "master",
-    "head": "ad954fb719c8355d74d19d2483ee45e3e29f1cbd",
-    "committed_at": 1658323169
+    "head": "174bbf7316a42bbf8df1367b072d0d3c9fb25b4a",
+    "committed_at": 1658382534
   },
-  "covered_percent": 96.64429530201343,
+  "covered_percent": 96.62162162162163,
   "covered_strength": 0,
   "line_counts": {
     "missed": 5,
-    "covered": 144,
-    "total": 149
+    "covered": 143,
+    "total": 148
   },
   "source_files": [
+    {
+      "blob_id": "2ae0ba706bb255519259b613a61883d0da4b04d6",
+      "coverage": "[null,3,3,3,3,3,3,3,3,3,null,null,3,null,null,null,3,3,13,13,880,null,null,null,null,null,null,null,null,880,null,null,null,null,null,null,13,null,1633,1633,null,null,1633,null,null,1633,null,null,1633,null,null,null,null,null,null,null,null,null,3,3,1639,41964,41964,null,null,3,10,3,1627,3,16,3,16,3,15,3,3,48,48,null,3]",
+      "covered_percent": 100,
+      "covered_strength": 2318.5,
+      "line_counts": {
+        "missed": 0,
+        "covered": 42,
+        "total": 42
+      },
+      "name": "src/main/ts/finder.ts"
+    },
+    {
+      "blob_id": "d0b5d23fa77a657b63d98fdaffead87c09c92378",
+      "coverage": "[null,2,2,2]",
+      "covered_percent": 100,
+      "covered_strength": 2,
+      "line_counts": {
+        "missed": 0,
+        "covered": 3,
+        "total": 3
+      },
+      "name": "src/main/ts/index.ts"
+    },
     {
       "blob_id": "4735d48158489fa962ad5385d7afe534c969b12f",
       "coverage": "[null,3,3,3,null,3,3,3,3,null,null,3,3,3]",
@@ -54,14 +78,14 @@
       "name": "src/main/ts/meta.ts"
     },
     {
-      "blob_id": "d221cce430d86d1c96b5bd615b20c45fe9a70f41",
-      "coverage": "[null,2,2,2,2,2,2,2,2,0,0,0,null,null,null,null,null,2,2,0,0,null,2,2,14,14,null,null,null,14,1,null,14,7,7,12,null,null,14,6,null,14,null,null,null,null,null,null,null,2,2,14,14,14,1,1,null,null,null,13,6,null,7,7,7,null,null,7,2,2,2,1,null,1,null,12,null,null,2]",
-      "covered_percent": 89.58333333333334,
-      "covered_strength": 5.375,
+      "blob_id": "7548fbb67c29952bcab57e93d448aec7dba09ead",
+      "coverage": "[null,2,2,2,2,2,2,2,2,0,0,0,null,null,null,null,null,2,2,0,0,null,2,2,14,14,null,null,null,14,6,null,14,1,null,14,7,7,12,null,null,14,null,null,null,null,null,null,null,2,2,14,14,null,14,6,null,8,1,null,7,7,7,null,null,7,2,2,2,1,null,1,null,12,null,null,2]",
+      "covered_percent": 89.36170212765957,
+      "covered_strength": 5.361702127659575,
       "line_counts": {
         "missed": 5,
-        "covered": 43,
-        "total": 48
+        "covered": 42,
+        "total": 47
       },
       "name": "src/main/ts/serializer.ts"
     },
@@ -76,30 +100,6 @@
         "total": 35
       },
       "name": "src/main/ts/util.ts"
-    },
-    {
-      "blob_id": "2ae0ba706bb255519259b613a61883d0da4b04d6",
-      "coverage": "[null,3,3,3,3,3,3,3,3,3,null,null,3,null,null,null,3,3,13,13,880,null,null,null,null,null,null,null,null,880,null,null,null,null,null,null,13,null,1633,1633,null,null,1633,null,null,1633,null,null,1633,null,null,null,null,null,null,null,null,null,3,3,1639,41964,41964,null,null,3,10,3,1627,3,16,3,16,3,15,3,3,48,48,null,3]",
-      "covered_percent": 100,
-      "covered_strength": 2318.5,
-      "line_counts": {
-        "missed": 0,
-        "covered": 42,
-        "total": 42
-      },
-      "name": "src/main/ts/finder.ts"
-    },
-    {
-      "blob_id": "d0b5d23fa77a657b63d98fdaffead87c09c92378",
-      "coverage": "[null,2,2,2]",
-      "covered_percent": 100,
-      "covered_strength": 2,
-      "line_counts": {
-        "missed": 0,
-        "covered": 3,
-        "total": 3
-      },
-      "name": "src/main/ts/index.ts"
     }
   ],
   "repo_token": "48132e6f6042c22f32b20696094e3cbb0839bc29e8f390ffe79c61d716022dfd"

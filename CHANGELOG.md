@@ -1,3 +1,8 @@
+## [1.0.1](https://github.com/qiwi/serializer/compare/v1.0.0...v1.0.1) (2022-07-21)
+
+### Fixes & improvements
+* docs: mention license ([174bbf7](https://github.com/qiwi/serializer/commit/174bbf7316a42bbf8df1367b072d0d3c9fb25b4a))
+
 ## [1.0.0](https://github.com/qiwi/serializer/compare/undefined...v1.0.0) (2022-07-20)
 
 ### Fixes & improvements
@@ -16,5 +21,3 @@
 * feat: add basic findSource impl ([60ebbd2](https://github.com/qiwi/serializer/commit/60ebbd2cdb5f79b4769d6c82b7fbe5d6f344e096))
 * feat: add basic finder ([fe1aed6](https://github.com/qiwi/serializer/commit/fe1aed6ef056f7af05397f6674ff4d0b888d6436))
 * feat: add data schema interface ([f7dc75a](https://github.com/qiwi/serializer/commit/f7dc75a6af7d36ee386742e56af8a16893fb37bb))
-
-
